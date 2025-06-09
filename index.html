@@ -668,8 +668,12 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="env.js"></script>
-    <!-- Load environment variables -->
-
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init(window.env.EMAILJS_PUBLIC_KEY);
+      })();
+    </script>
     <script src="page.js"></script>
   </body>
 </html>

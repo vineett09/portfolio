@@ -310,12 +310,17 @@ contactForm.addEventListener("submit", (e) => {
   submitBtn.disabled = true;
 
   emailjs
-    .send(serviceID, templateID, publicKey, {
-      from_name: name,
-      from_email: email,
-      subject,
-      message,
-    })
+    .send(
+      serviceID,
+      templateID,
+      {
+        from_name: name,
+        from_email: email,
+        subject,
+        message,
+      },
+      publicKey
+    )
     .then(() => {
       alert("Thank you for your message! I'll get back to you soon.");
       contactForm.reset();
@@ -329,13 +334,6 @@ contactForm.addEventListener("submit", (e) => {
       submitBtn.disabled = false;
     });
 });
-
-setTimeout(() => {
-  alert("Thank you for your message! I'll get back to you soon.");
-  contactForm.reset();
-  submitBtn.innerHTML = originalText;
-  submitBtn.disabled = false;
-}, 2000);
 
 // Parallax effect for hero section
 window.addEventListener("scroll", () => {
